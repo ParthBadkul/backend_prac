@@ -13,5 +13,6 @@
         "**/windows": true,
         "windows": true
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "cmake.sourceDirectory": "E:/Flutter Proj/backend/linux"
 }
