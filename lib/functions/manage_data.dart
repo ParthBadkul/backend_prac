@@ -12,3 +12,9 @@ Future<Map<String, dynamic>> getExternalData() async {
 Future<void> saveNewInternalData({required String externaldata}) async {
 //TODO: shared pref save data from json string
 }
+
+Future<Map<String, dynamic>> getInternalData() async {
+  //TODO: await sahred.getdata
+  //TODO : set the map under
+  return {};
+}
