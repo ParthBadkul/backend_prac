@@ -59,55 +59,61 @@ class _HomePageState extends State<HomePage> {
                 ValueListenableBuilder(
                   valueListenable: dataNotifier,
                   builder: (context, data, child) {
-                    return Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 130,
-                          ),
-                          Text(
-                            data.activity,
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 25,
-                              letterSpacing: 2.5,
+                    return Center(
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        child: Column(
+                          // crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              height: 130,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'This is  ${data.type} activity',
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontSize: 15,
-                              letterSpacing: 2.5,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 110),
-                            child: ListTile(
-                              title: Text(
-                                data.participants.toString(),
+                            Center(
+                              child: Text(
+                                data.activity,
                                 style: TextStyle(
-                                  color: Colors.black38,
+                                  color: Colors.black54,
+                                  fontSize: 25,
+                                  letterSpacing: 2.5,
                                 ),
-                              ),
-                              leading: Text(
-                                "Participants",
-                                style: TextStyle(
-                                  letterSpacing: 2,
-                                  color: Colors.black87,
-                                ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
-                          )
-                        ],
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'This is  ${data.type} activity',
+                              style: TextStyle(
+                                color: Colors.black45,
+                                fontSize: 15,
+                                letterSpacing: 2.5,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 110),
+                              child: ListTile(
+                                title: Text(
+                                  data.participants.toString(),
+                                  style: TextStyle(
+                                    color: Colors.black38,
+                                  ),
+                                ),
+                                leading: Text(
+                                  "Participants",
+                                  style: TextStyle(
+                                    letterSpacing: 2,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -122,8 +128,9 @@ class _HomePageState extends State<HomePage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton.icon(
-            onPressed: () {
+            onPressed: () async {
               // TODO: add onpressed fucntion
+              await dataNotifier.value.reset();
             },
             icon: Icon(Icons.add),
             label: Text('New activity'),
@@ -134,6 +141,7 @@ class _HomePageState extends State<HomePage> {
           TextButton(
               onPressed: () {
                 // TODO: add on pressed functions
+                dataNotifier.value.logData();
               },
               child: Text('LogData'))
         ],

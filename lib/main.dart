@@ -1,3 +1,4 @@
+import 'package:backend/functions/init.dart';
 import 'package:backend/screens/Homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: HomePage(),
+      home: FutureBuilder(
+        future: initApp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return HomePage();
+          }
+        },
+      ),
       theme: ThemeData(useMaterial3: true, primarySwatch: Colors.teal),
     );
   }

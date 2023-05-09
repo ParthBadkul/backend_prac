@@ -5,3 +5,4 @@ const String kPrice = 'price';
 const String kLink = 'link';
 const String kKey = 'key';
 const String kAccessiblity = 'accessibility';
+const String keyInternalData = 'keyInternalData';

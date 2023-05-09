@@ -14,11 +14,11 @@ Map<String, dynamic> fromStringtoMap({required String jsonString}) {
 
 DataModel fromMaptoDatamodel({required Map<String, dynamic> map}) {
   return DataModel(
-      accessiblity: map['accessiblity'],
+      accessiblity: map['accessibility'].toString(),
       activity: map['activity'],
       key: map['key'],
       link: map['link'],
       participants: map['participants'],
-      price: map['price'],
+      price: map['price'].toString(),
       type: map['type']);
 }

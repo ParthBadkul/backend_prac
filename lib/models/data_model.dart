@@ -1,3 +1,8 @@
+import 'package:backend/functions/utils.dart';
+import 'package:flutter/material.dart';
+
+import '../data/notifiers/manage_notfiers.dart';
+
 class DataModel {
   final String activity;
   final String type;
@@ -19,10 +24,13 @@ class DataModel {
 
   Future<void> reset() async {
     //Todo: set data notfier setter
-    //await setDataNotifier();
+    await setDataNotifier();
   }
 
   void logData() {
     //TODO ; set data log
+    String current = fromMaptoString(map: dataMapCurrent);
+    debugPrint('current : $current');
+    //TODO log internal and external data
   }
 }
